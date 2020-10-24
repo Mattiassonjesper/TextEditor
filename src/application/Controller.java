@@ -1,6 +1,7 @@
 package application;
 
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.TextArea;
 
 public class Controller {
@@ -32,6 +33,11 @@ public class Controller {
 	@FXML
 	private void onAbout() {
 		System.out.println("About was clicked");
+		Alert alert = new Alert(Alert.AlertType.INFORMATION);
+		alert.setHeaderText("Jesper");
+		alert.setTitle("About");
+		alert.setContentText("This is a text editor");
+		alert.show();
 	}
 
 }
