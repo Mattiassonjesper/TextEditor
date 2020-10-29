@@ -27,6 +27,7 @@ public class Controller {
 	@FXML
 	private Slider S;
 
+	// Constructor
 	public Controller(Model editorModel) {
 		this.editorModel = editorModel;
 	}
@@ -40,7 +41,12 @@ public class Controller {
 	private void onLoad() {
 		Stage stage = new Stage();
 		FileChooser chooser = new FileChooser();
+
+		// Set file name filter
+		FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("TEXT files (*.txt)", "*.txt");
+		chooser.getExtensionFilters().add(extFilter);
 		chooser.setTitle("Open File");
+
 		File selectedFile = chooser.showOpenDialog(stage);
 
 		FileReader FR = null;
