@@ -4,12 +4,14 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
 import javafx.scene.control.TextArea;
 import javafx.scene.text.Font;
@@ -22,19 +24,43 @@ public class Controller {
 	private TextArea areaText;
 
 	@FXML
-	private Model editorModel;
+	private Model model;
 
 	@FXML
 	private Slider S;
 
+	@FXML
+	private Label lbl_FontSize;
+
 	// Constructor
-	public Controller(Model editorModel) {
-		this.editorModel = editorModel;
+	public Controller(Model model) {
+		this.model = model;
 	}
 
 	@FXML
 	private void onSave() {
-
+		Stage stage = new Stage();
+		FileChooser saver = new FileChooser();
+		File selectedFile = saver.showSaveDialog(stage);
+		FileWriter FW = null;
+		try {
+			FW = new FileWriter(selectedFile.getAbsolutePath());
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		try {
+			FW.write(areaText.getText().toString());
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		try {
+			FW.close();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	@FXML
@@ -93,7 +119,7 @@ public class Controller {
 
 	@FXML
 	public void onSlide() {
-		System.out.println("Slider be Sliding!");
+		System.out.println("Slider is Sliding!");
 		S.setMax(100);
 		S.setMin(20);
 		S.setValue(20);

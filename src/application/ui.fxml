@@ -42,7 +42,7 @@
       <HBox BorderPane.alignment="CENTER">
          <children>
             <Slider fx:id="S" onDragDetected="#onSlide" />
-            <Label text="Label" />
+            
          </children>
       </HBox>
    </bottom>
