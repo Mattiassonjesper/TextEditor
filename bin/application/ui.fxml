@@ -34,7 +34,7 @@
    <center>
       <TextArea fx:id="areaText" styleClass="content" stylesheets="@application.css" BorderPane.alignment="CENTER">
          <font>
-            <Font name="SansSerif Regular" size="20.0" />
+            <Font name="SansSerif Regular" size="30.0" />
          </font>
       </TextArea>
    </center>

@@ -37,6 +37,7 @@ public class Controller {
 		this.model = model;
 	}
 
+	// Save text
 	@FXML
 	private void onSave() {
 		Stage stage = new Stage();
@@ -63,6 +64,7 @@ public class Controller {
 		}
 	}
 
+	// Loads a txt document
 	@FXML
 	private void onLoad() {
 		Stage stage = new Stage();
@@ -107,6 +109,7 @@ public class Controller {
 		Model.close();
 	}
 
+	// Alert
 	@FXML
 	private void onAbout() {
 		System.out.println("About was clicked");
@@ -117,12 +120,13 @@ public class Controller {
 		alert.show();
 	}
 
+	// Change font size with slider
 	@FXML
 	public void onSlide() {
 		System.out.println("Slider is Sliding!");
 		S.setMax(100);
-		S.setMin(20);
-		S.setValue(20);
+		S.setMin(30);
+		S.setValue(30);
 
 		S.valueProperty().addListener(new ChangeListener<Number>() {
 			public void changed(ObservableValue<? extends Number> ov, Number old_val, Number new_val) {
